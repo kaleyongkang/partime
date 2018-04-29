@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.parttime.dao.JobDao">
+	<select id="findAll" resultType="com.parttime.entity.Job">
+		select * from job
+	</select>
+	<insert id="add" parameterType="com.parttime.entity.Job">
+		insert into job (
+		title,
+		createtime,
+		startTime,
+		endtime,
+		needcount,
+		slarry,
+		type,
+		description,
+		site,
+		city,
+		part,
+		phone,
+		createBy
+		)
+		values(
+		#{title},
+		#{createtime},
+		#{startTime},
+		#{endtime},
+		#{needcount},
+		#{slarry},
+		#{type},
+		#{description},
+		#{site},
+		#{city},
+		#{part},
+		#{phone},
+		#{createBy}
+		);
+	</insert>
+	<delete id="delete" parameterType="int">
+		delete from job where id=#{id}
+	</delete>
+	<select id="findOne" parameterType="int" resultType="com.parttime.entity.Job">
+		select * from job where id=#{id}
+	</select>
+	<select id="filterFind" parameterType="com.parttime.entity.FilterFind"
+		resultType="com.parttime.entity.Job">
+		select * from job
+		<where>
+			<if test="user!=null and user!=''">
+				and createBy = #{user}
+			</if>
+			<if test="part!=null and part!=''">
+				and part = #{part}
+			</if>
+			<if test="part!=null and city!=''">
+				and city = #{city}
+			</if>
+			<if test="type!=null and type!=''">
+				and type = #{type}
+			</if>
+			<if test="title!=null and title!=''">
+				and title like '%${title}%'
+			</if>
+		</where>
+		order by ${orderBy}
+	</select>
+	<select id="findJoinIn" resultType="string">
+		select status from join_tb 
+		 	 where jobId=#{jobId,jdbcType=INTEGER}
+		       and username=#{username,jdbcType=VARCHAR}
+	</select>
+	<insert id="joinIn" parameterType="com.parttime.entity.Join">
+		insert into join_tb (
+		jobId,
+		username,
+		status,
+		jointime
+		)
+		values(
+		#{jobId},
+		#{userName},
+		#{status},
+		#{joinTime}
+		);
+	</insert>
+
+	<select id="findJoinList" parameterType="int"
+		resultType="com.parttime.entity.Join">
+		select * from join_tb where jobId=#{id}
+	</select>
+
+	<select id="myFindJoinList" parameterType="string"
+		resultType="com.parttime.entity.Join">
+		select * from join_tb where username=#{username}
+	</select>
+
+</mapper>

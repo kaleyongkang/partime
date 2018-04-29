@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="css/common.css">
+<link rel="stylesheet"
+	href="css/main.css">
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript"
+	src="js/jquery.min.js"></script>
+<script type="text/javascript"
+	src="js/colResizable-1.3.min.js"></script>
+<script type="text/javascript"
+	src="js/common.js"></script>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+<script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
+<script src="https://cdn.bootcss.com/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.min.js"></script>
+<script src="js/cookie_util.js"></script>
+<script src="js/job-list.js"></script>
+<title>Document</title>
+</head>
+<body ng-app="joblist" ng-controller="jobListCtrl as jlCtrl">
+     <div class="box_top" ng-include="'head.html'"></div>
+	<div class="container" style="width: 1351px">
+		<div id="search_bar" class="mt10">
+			<div class="box">
+				<div class="box_border">
+					<form
+						action="${pageContext.request.contextPath}/student/list"
+						method="post">
+						<div class="box_center pt10 pb10">
+							<table class="form_table" border="0" cellpadding="0"
+								cellspacing="0">
+								<tr user in $data>
+									<td>
+										<select ng-model="adCtrl.city" ng-options="x for x in citys">
+										  <option value="">-- 请选择 --</option>
+										</select>省
+										<select ng-model="adCtrl.part" ng-options="x for x in parts">
+										  <option value="">-- 请选择 --</option>
+										</select>市
+									</td>
+									<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+									<td>
+									
+									</td>
+									<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+									<td>工作性质:</td>
+									<td>
+									<select ng-model="adCtrl.type" ng-options="x for x in types">
+									  <option value="">-- 请选择 --</option>   
+									</select></td>
+									<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+									<td>排序方式:</td>
+									<td>							
+									    <select ng-model="adCtrl.orderBy" ng-options="x for x in orderBys">
+									       <option value="">-- 请选择 --</option>   
+									    </select></td>
+									<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    								<td>							
+                                       <input ng-model="title" class="input-text lh30" size="10" style="width: 400px">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input ng-click="change()" type="submit" name="button" class="btn" value="查找">
+									<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+								</tr>
+							</table>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="content-center">
+      <ul ng-repeat="x in jlCtrl.data">
+      	<li>
+      	  <div class="item_con job_title">
+	      	  <a href="" ng-click="jlCtrl.showDetail(x.id)" target="_blank">
+	      	    {{x.title}} | {{x.type}}
+	      	  </a>
+	      	  <i class="icons im-online-status im-offline">
+      	      </i>
+      	      <p class="job_salary">{{x.slarry}}<i class="unit">
+      	      </i></p> 
+      	  </div>
+      	  <div class="item_con job_comp"><input type="hidden"> 
+      	     <div class="comp_name"> 
+      	      <span> {{x.site}} </span> 
+      	         </div>  
+      	         <p class="job_require">
+      	            <span class="xueli">{{x.city}}</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="jingyan">{{x.part}}</span>
+      	         </p>
+   	        </div>
+      	  <div class="pulic-time">
+      	     <span>发布时间：{{x.createtime|date:"yyyy-MM-dd HH:mm:ss"}}</span>
+      	  </div>
+      	 </li>
+      </ul>
+    </div>
+</body>
+</html>
+<script type="text/ng-template" id="modal.html"> 
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title" align="center">
+            {{job.title}}
+        </h3>
+    </div>
+    <div class="modal-body">
+        <div align="center">
+            <ul>
+                    <li>
+                                                                城市
+                       {{job.part}}
+                    </li>
+                    <li>
+                                                                市区
+                       {{job.site}}
+                    </li>
+                    <li>
+                                                                地址
+                       {{job.part}}
+                    </li>
+                    <li>
+                                                                 工资
+                       {{job.slarry}}
+                    </li>
+                    <li>
+                                                                需要人数
+                       {{job.needcount}}
+                    </li>
+                    <li>
+                                                                联系电话
+                       {{job.phone}}
+                    </li>
+                    <li>
+                                                                 工作类别
+                       {{job.type}}
+                    </li>						
+                    <li>
+                                                                 发布日期
+{{job.createtime|date:"yyyy-MM-dd HH:mm:ss"}}
+                    </li>						
+                    <li>
+                                                                开始日期
+             {{job.startTime|date:"yyyy-MM-dd HH:mm:ss"}}
+                    </li>
+                    <li>
+                                                              结束日期
+                      {{job.endtime|date:"yyyy-MM-dd HH:mm:ss"}}
+                    </li>						
+                    <li>
+                                                                  发布人
+                       {{job.createBy}}
+                    </li>						
+                    <li>
+                                                                职位要求
+                       {{job.description}}
+                    </li>						
+				</ul>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">
+            确认
+        </button>
+        <button class="btn btn-warning" ng-click="cancel()">
+            退出
+        </button>
+    </div>
+</div>
+</script>	
+</body>
+</html>

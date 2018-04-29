@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+
+    <link rel="stylesheet" href="css/login.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+	<title>后台登陆</title>
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<script src="js/login.js"></script>
+	<script src="js/cookie_util.js"></script>
+</head>
+<body ng-app="login" ng-controller="loginCtrl">
+<h1 style="text-align: center"> 校园兼职系统</h1>
+	<div>
+		<div class="login-box">
+		    <div class="choose">
+				<span ng-click="chanageStatus()" ng-class="{false:'selected',true:'unselected'}[isSelected]" class="student">我是学生</span>
+				<span ng-click="ffchanageStatus()" ng-class="{true:'selected',false:'unselected'}[isSelected]" class="company">我是公司</span>
+		    </div>
+		    <div class="error-msg"></div>
+		    <div class="login-context">
+			    <table>
+			    	<tr>
+			    		<td>用户名：</td>
+			    		<td><input type="text" class="username" ng-model="username"></td>
+			    	</tr>
+			    	<tr>
+			    		<td>密码：</td>
+			    		<td><input type="password" class="pwd" ng-model="password"></td>
+			    	</tr>
+			    </table>
+		    </div>
+		    <div class="submint">
+				<input class="sub_btn" ng-click="login()" type="submit" name="submit" id="sub_btn" value="登录">
+				<input class="sub_btn" ng-click="register()" type="submit" name="submit" id="reg_btn" value="注册">
+		    </div>
+		</div>	
+	</div>
+</body>
+</html>

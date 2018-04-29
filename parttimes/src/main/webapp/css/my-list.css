@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+.modal-left {
+	width: 132px;
+	height: 450px;
+	float: left;
+	min-height:450px;
+	overflow-y:auto;
+	max-height:450px;
+}
+.modal-left li {
+	border-bottom: 1px solid #bac7d2;
+	text-align: center;
+	cursor: pointer;
+}
+.modal-right li{
+	border-bottom: 1px solid #bac7d2;
+	text-align: center;
+}
+.modal-right {
+	width: 402px;
+	margin-left: 20px;
+	height: 450px;
+	float: left;
+	min-height:450px;
+	overflow-y:auto;
+	max-height:450px;
+}
+.modal-footer{
+	clear: both;
+}

@@ -1,0 +1,81 @@
+@CHARSET "UTF-8";
+* { margin:0; padding:0; list-style:none;}
+html, body { 
+	overflow-y: auto;
+	overflow-x: hidden;
+	font:normal 15px "Microsoft YaHei";
+}
+
+.login-box {
+    background: #d3dbde;
+    width: 410px;
+    height: 370px;
+    margin: 100px auto;
+    opacity: 0.8;
+}
+
+.choose span {
+	display: block;
+	width: 201px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	float: left;
+	cursor: pointer;
+	margin-bottom: 30px;
+	border-bottom: 0; 
+}
+.login-context table {
+	margin: 0 auto;
+}
+
+.login-context tr{
+	line-height: 40px;
+}
+
+.login-context tr input{
+    display: block;
+    width: 284px;
+    height: 40px;
+    margin-bottom: 30px;
+}
+.submint input {
+    display: block;
+    cursor: pointer;
+    float: left;
+    margin-left: 112px;
+}
+.submint {
+   margin-left: 126px;
+}
+.error-msg {
+	width: 410px;
+	height: 40px;
+	line-height: 40px;
+	clear: both;
+}
+.selected {
+	background: #d3dbde;
+}
+
+.unselected {
+	background: white;
+}
+.clear {
+	clear: both;
+}
+.form-div {
+	margin-top: 100px;
+}
+.identify {
+	float: left;
+	margin-left: 10px;
+}
+.identify input {
+	margin-right: 10px;
+	margin-top: 5px;
+}
+
+.identify .input2 {
+	margin-left: 20px;
+}

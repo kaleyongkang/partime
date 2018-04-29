@@ -1,0 +1,29 @@
+.introude-text {
+	display: block;
+	border: 1px solid #bac7d2;
+	width: 800px;
+	height: 100px;
+}
+
+.introude-text1 {
+	display: block;
+	border: 1px solid #bac7d2;
+	width: 800px;
+	height: 300px;
+}
+.button-div {
+	margin-left: 300px;
+	margin-bottom: 90px;
+}
+.button-div input {
+	display: block;
+	float: left;
+	margin-left: 100px;
+}
+
+.time-btu {
+    border: 1px solid #bac7d2;
+    background: #f7fcfe;
+    border-radius: 2px;
+    box-shadow: 2px 2px 2px #e7f1f7 inset;
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="stylesheet"
+	href="css/style.css">
+<link rel="stylesheet"
+	href="css/style2.css">
+	<link rel="stylesheet" href="css/login.css">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script src="js/cookie_util.js"></script>
+<script src="js/login.js"></script>
+</head>
+<body ng-app="login" ng-controller="loginCtrl">
+	<br>
+	   <h1> </h1>
+		<div class="form-div">
+			 <table>
+			    	<tr>
+			    		<td>用户名：</td>
+			    		<td><input type="text" class="username" ng-model="username"></td>
+			    	</tr>
+			    	<tr>
+			    		<td>密码：</td>
+			    		<td><input type="password" class="pwd" ng-model="password"></td>
+			    	</tr>
+			    	<tr height="40px;">
+			    		<td>
+			    			身份：
+			    		</td>
+			    		<td>
+				    		<div class="identify">
+				    		    <input type="radio" name="a" ng-value="0" ng-model="identify">学生
+				    		</div>
+				    		<div class="identify">
+       	                        <input class="input2" type="radio" name="a" ng-value="1" ng-model="identify">公司
+				    		</div>
+			    		</td>
+			    	</tr>
+			    </table>
+			    <div class="submint">
+					<input class="sub_btn" ng-click="login()" type="submit" name="submit" id="sub_btn" value="登录">
+					<input class="sub_btn" ng-click="register()" type="submit" name="submit" id="reg_btn" value="注册">
+			    </div>
+			    <div class="clear"></div>
+		    </div>
+
+				<br class="clear" />
+</body>
+</html>

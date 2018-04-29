@@ -1,0 +1,70 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="stylesheet"
+	href="css/style.css">
+<link rel="stylesheet"
+	href="css/style2.css">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script src="js/register.js"></script>
+</head>
+<body ng-app="registerqq" ng-controller="registerqqCtrl as rCtrl">
+   <h1> </h1>
+	<br>
+		<div class="form-div">
+				<table>
+					<tr>
+						<td>用户名</td>
+						<td><input ng-model="rCtrl.username" type="text"/>
+						</td>
+					</tr>
+					<tr>
+						<td>密码</td>
+						<td><input ng-model="rCtrl.password" type="password"/></td>`
+					</tr>
+					<tr>
+						<td>email</td>
+						<td><input ng-model="rCtrl.email" type="text"/></td>
+					</tr>
+					<tr>
+						<td>手机号</td>
+						<td><input ng-model="rCtrl.telphone" type="text"/></td>
+					</tr>
+					<tr>
+					<td>身份</td>
+					<td>
+			    		<div class="identify">
+				    		    <input ng-click="rCtrl.changRole()" type="radio" name="a" ng-value="0" ng-model="rCtrl.identify">学生
+				    		</div>
+				    		<div class="identify">
+       	                        <input ng-click="rCtrl.changRole()" class="input2" type="radio" name="a" ng-value="1" ng-model="rCtrl.identify">公司
+			    		</div>
+			    		</td>
+					</tr>
+					<tr ng-if="rCtrl.isShow">
+						<td>所在学校</td>
+						<td><input ng-model="rCtrl.schoolName" type="text"/></td>
+					</tr >
+					<tr ng-if="!rCtrl.isShow">
+						<td>公司名称</td>
+						<td><input ng-model="rCtrl.companyName" type="text"/></td>
+					</tr>
+				</table>
+
+				<div class="buttons">
+					<input value="注 册" type="submit"
+						style="margin-right: 20px; margin-top: 20px"; ng-click="rCtrl.register()"/> 
+				<a href="login.html"><input
+						value="我有账号，我要登录" type="button"
+						style="margin-right: 45px; margin-top: 20px;" /></a>
+				</div>
+
+				<br class="clear" />
+		</div>
+</body>
+</html>
